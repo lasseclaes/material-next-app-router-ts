@@ -6,9 +6,15 @@ import EditIcon from "@mui/icons-material/Edit";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
-
+import { examOrders } from "@/data/examOrders";
+console.log("@data");
 const columns: GridColDef[] = [
-  { field: "id", headerName: "orderID", width: 90, headerAlign: "left" },
+  {
+    field: "id",
+    headerName: "orderID",
+    width: 90,
+    headerAlign: "left",
+  },
   {
     field: "examcode",
     headerName: "Prøveforekomst",
@@ -41,6 +47,7 @@ const columns: GridColDef[] = [
     headerName: "Type",
     width: 60,
     headerAlign: "left",
+    renderCell: (params) => (params.value ? "Syns" : "Ordb"),
   },
   {
     field: "itemid",
@@ -94,151 +101,6 @@ const columns: GridColDef[] = [
   },
 ];
 
-const examorders = [
-  {
-    id: 11175,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: false,
-    itemid: 1,
-    status: "Ubehandlede",
-    att: "ljb",
-  },
-  {
-    id: 11176,
-    examcode: "Q_EXAM_236sd5",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 1, 23, 16, 738))
-    ),
-    examname: "Musik B",
-    docformat: "docx_rtf",
-    visionimpaired_exam: true,
-    itemid: 2,
-    status: "Korrektur",
-    att: "per",
-  },
-  {
-    id: 11177,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik C",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Ubehandlede",
-    att: "",
-  },
-  {
-    id: 11178,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik D",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Godkendte",
-    att: "",
-  },
-  {
-    id: 11179,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "direkte-forsendelse",
-    att: "",
-  },
-  {
-    id: 11180,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Dialog",
-    att: "",
-  },
-  {
-    id: 11181,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Dialog",
-    att: "Keld",
-  },
-  {
-    id: 11182,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Dialog",
-    att: "",
-  },
-  {
-    id: 11183,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Ubehandlede",
-    att: "",
-  },
-  {
-    id: 11184,
-    examcode: "Q_EXAM_2365",
-    examdate: new Intl.DateTimeFormat("da").format(
-      new Date(Date.UTC(2023, 11, 20, 3, 23, 16, 738))
-    ),
-    examname: "Musik A",
-    docformat: "pdf",
-    visionimpaired_exam: true,
-    itemid: 56326,
-    status: "Ubehandlede",
-    att: "",
-  },
-];
-
-const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-];
-
 /* console.log("examorders", examorders);
 console.log("columns", columns); */
 
@@ -255,7 +117,7 @@ export default function ExamOrdersDataGrid() {
     openToast();
   }
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "fit-content" }}>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={open}
@@ -270,7 +132,7 @@ export default function ExamOrdersDataGrid() {
         // loading={!examorders ? true : false}
         // disableColumnMenu
         loading={false}
-        rows={examorders}
+        rows={examOrders}
         columns={columns}
         initialState={{
           pagination: {

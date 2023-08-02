@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
-import { tabItems } from "./data/tabItems";
+import { tabItems } from "@/data/tabItems";
 console.log(tabItems);
 export default function Tabsljn() {
   return (

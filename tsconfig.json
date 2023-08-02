@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/data/tabItems.js"
+    "src/data/tabItems.js",
+    "src/data/examOrders.js"
   ],
   "exclude": ["node_modules"]
 }
