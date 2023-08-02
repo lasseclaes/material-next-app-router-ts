@@ -10,12 +10,20 @@ import AlertTitle from "@mui/material/AlertTitle"; */
 import MediaCard from "@/components/MediaCard";
 import ExamOrdersTable from "@/components/ExamOrdersDataGrid";
 import ExamOrdersDataGrid from "@/components/ExamOrdersDataGrid";
+import Tabsljn from "@/components/Tabsljn";
 
 export default function HomePage() {
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+      }}
+    >
+      <h2>Bestillinger</h2>
+      <Tabsljn />
       <ExamOrdersDataGrid />
-      {/*  <Box
+    </Box>
+    /*  <Box
         sx={{
           display: "flex",
         }}
@@ -48,7 +56,6 @@ export default function HomePage() {
             </Grid>
           </Grid>
         </Box>
-      </Box> */}
-    </>
+      </Box> */
   );
 }
