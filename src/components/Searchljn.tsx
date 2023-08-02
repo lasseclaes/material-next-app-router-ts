@@ -46,6 +46,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+function handleSearch(e: any) {
+  if (e.target.value.length > 2) {
+    console.log(e.target.value);
+    if (e.target.value.length === 4) {
+      alert("handleSearch for: '" + e.target.value + "' ... Tjek console");
+    }
+  }
+}
+
 export default function Searchljn() {
   return (
     <Search
@@ -57,6 +66,7 @@ export default function Searchljn() {
         <SearchIcon />
       </SearchIconWrapper>
       <StyledInputBase
+        onChange={handleSearch}
         placeholder="Søg i bestillinger"
         inputProps={{ "aria-label": "search" }}
       />

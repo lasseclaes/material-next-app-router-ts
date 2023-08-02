@@ -280,7 +280,7 @@ export default function ExamOrdersDataGrid() {
           },
         }}
         onCellEditStart={handleEditStart}
-        // pageSizeOptions={[5, 10, 25, 50]}
+        pageSizeOptions={[5, 10, 25, 50]}
         sx={{
           "& .ljn-header-cell": {
             textOverflow: "ellipsis",
