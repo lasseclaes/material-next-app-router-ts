@@ -110,9 +110,17 @@ export default function RootLayout({
               color="black"
               component={Link}
               href="/"
-              sx={{ textDecoration: "none", m: 2 }}
+              sx={{
+                textDecoration: "none",
+                p: 2,
+                "&:hover": {
+                  // textDecoration: "underline",
+                  backgroundColor: "rgba(0, 0, 0, 0.04)",
+                  // backgroundColor: "blue",
+                },
+              }}
             >
-              Eksamensbestillinger
+              <Typography component="h1">Eksamensbestillinger</Typography>
             </Typography>
             {/* <Divider /> */}
             <List>
