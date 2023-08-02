@@ -11,15 +11,34 @@ import MediaCard from "@/components/MediaCard";
 import ExamOrdersTable from "@/components/ExamOrdersDataGrid";
 import ExamOrdersDataGrid from "@/components/ExamOrdersDataGrid";
 import Tabsljn from "@/components/Tabsljn";
+import AppBar from "@mui/material/AppBar";
+import { Toolbar, Typography } from "@mui/material";
+import Searchljn from "@/components/Searchljn";
 
 export default function HomePage() {
   return (
     <Box
-      sx={{
-        display: "flex",
-      }}
+      sx={
+        {
+          // display: "flex",
+        }
+      }
     >
-      <h2>Bestillinger</h2>
+      {/* <AppBar position="static" component="header"> */}
+      <Toolbar
+        disableGutters
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography component="h2" variant="h3" sx={{ mb: 4 }}>
+          Bestillinger
+        </Typography>
+        <Searchljn />
+      </Toolbar>
+      {/* </AppBar> */}
       <Tabsljn />
       <ExamOrdersDataGrid />
     </Box>

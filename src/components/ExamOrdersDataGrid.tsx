@@ -282,7 +282,6 @@ export default function ExamOrdersDataGrid() {
         onCellEditStart={handleEditStart}
         // pageSizeOptions={[5, 10, 25, 50]}
         sx={{
-          // Define styles for the .ljn-editable-cell class
           "& .ljn-header-cell": {
             textOverflow: "ellipsis",
             overflow: "hidden",
@@ -297,7 +296,6 @@ export default function ExamOrdersDataGrid() {
           "& .ljn-editable-cell:hover": {
             backgroundColor: "#aaaaaa",
             border: "1px solid #ccc",
-            cursor: "pointer",
           },
         }}
         checkboxSelection={false}

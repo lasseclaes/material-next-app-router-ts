@@ -7,19 +7,27 @@ console.log(tabItems);
 export default function Tabsljn() {
   return (
     <Box
-      sx={{
-        display: "flex",
+      sx={
+        {
+          /*      display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "flex-start",
         "& > *": {
           m: 1,
-        },
-      }}
+        }, */
+        }
+      }
     >
       <ButtonGroup
         variant="outlined"
-        aria-label="outlined button group"
-        sx={{ display: "flex", flexWrap: "wrap" }}
+        aria-label="Filters for exam orders"
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          flexWrap: "wrap",
+          mb: 4,
+          ml: 0,
+        }}
       >
         {tabItems.map((item) => (
           <Button
