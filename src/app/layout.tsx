@@ -29,12 +29,13 @@ import ChecklistIcon from "@mui/icons-material/Checklist";
 // import SupportIcon from "@mui/icons-material/Support";
 // import LogoutIcon from "@mui/icons-material/Logout";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
-import { NodeNextRequest } from "next/dist/server/base-http/node";
+// import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 export const metadata = {
   title: "Exam ordering system",
   description: "TBD",
 };
+//console.log("metadata", metadata);
 
 const DRAWER_WIDTH = 240;
 
