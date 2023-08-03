@@ -32,7 +32,9 @@ export default function Tabsljn() {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
+          // flex: { xs: "100%", sm: "calc(50% - 20px)", md: "calc(33% - 20px)" }
+          justifyContent: { xs: "flex-start", lgg: "space-between" },
+          gap: 1,
         }}
       >
         {tabItems.map((item) => (

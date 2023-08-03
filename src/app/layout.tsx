@@ -130,53 +130,55 @@ export default function RootLayout({
                 <Typography component="h1">Eksamensbestillinger</Typography>
               </Typography>
               {/* <Divider /> */}
-              <List>
-                {LINKS.map(({ text, href, icon: Icon, submenu }) => (
-                  <ListItem
-                    key={href}
-                    disablePadding
-                    sx={{
-                      // overflow: "hidden",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <ListItemButton component={Link} href={href}>
-                      <ListItemIcon>
-                        <Icon />
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItemButton>
-                    {!submenu ? null : (
-                      <List
-                        sx={{
-                          my: 0,
-                          py: 0,
-                          width: "100%",
-                          overflowX: "hidden",
-                        }}
-                      >
-                        {submenu?.map((el) => (
-                          <ListItem
-                            key={el.href}
-                            sx={{
-                              ml: 2,
-                              my: 0,
-                              py: 0,
-                            }}
-                          >
-                            <ListItemButton component={Link} href={el.href}>
-                              <ListItemIcon>
-                                <Icon component={el.icon} />
-                              </ListItemIcon>
-                              <ListItemText primary={el.text} />
-                            </ListItemButton>
-                          </ListItem>
-                        ))}
-                      </List>
-                    )}
-                  </ListItem>
-                ))}
-              </List>
+              <nav aria-label="Main navigation">
+                <List>
+                  {LINKS.map(({ text, href, icon: Icon, submenu }) => (
+                    <ListItem
+                      key={href}
+                      disablePadding
+                      sx={{
+                        // overflow: "hidden",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <ListItemButton component={Link} href={href}>
+                        <ListItemIcon>
+                          <Icon />
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                      </ListItemButton>
+                      {!submenu ? null : (
+                        <List
+                          sx={{
+                            my: 0,
+                            py: 0,
+                            width: "100%",
+                            overflowX: "hidden",
+                          }}
+                        >
+                          {submenu?.map((el) => (
+                            <ListItem
+                              key={el.href}
+                              sx={{
+                                ml: 2,
+                                my: 0,
+                                py: 0,
+                              }}
+                            >
+                              <ListItemButton component={Link} href={el.href}>
+                                <ListItemIcon>
+                                  <Icon component={el.icon} />
+                                </ListItemIcon>
+                                <ListItemText primary={el.text} />
+                              </ListItemButton>
+                            </ListItem>
+                          ))}
+                        </List>
+                      )}
+                    </ListItem>
+                  ))}
+                </List>
+              </nav>
               {/*  <Divider sx={{ mt: "auto" }} /> */}
               {/*           <List>
               {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (

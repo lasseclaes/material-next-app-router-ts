@@ -7,9 +7,29 @@ const roboto = Roboto({
   display: "swap",
 });
 
+declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    lgg: true;
+  }
+}
+
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      lgg: 1350,
+      xl: 1536,
+    },
+  },
   palette: {
     mode: "light",
+    primary: {
+      //set the primary color
+      main: "rgba(0, 0, 0, 0.87)",
+    },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
@@ -28,6 +48,16 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           minWidth: "38px", //prev 56px
+        },
+      },
+    },
+    MuiTablePagination: {
+      styleOverrides: {
+        selectLabel: {
+          lineHeight: "1.5",
+        },
+        displayedRows: {
+          lineHeight: "1.5",
         },
       },
     },

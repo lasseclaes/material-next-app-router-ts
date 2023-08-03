@@ -1,13 +1,17 @@
 "use client";
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+// import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+// import { GridColDef } from "@mui/x-data-grid/models/colDef";
+// import { DataGrid } from "@mui/x-data-grid/DataGrid/DataGrid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import EditIcon from "@mui/icons-material/Edit";
 import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import { examOrders } from "@/data/examOrders";
 import Checkboxljn from "./Checkboxljn";
+
 console.log("@data");
 const columns: GridColDef[] = [
   {
