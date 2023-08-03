@@ -61,6 +61,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: "0.875rem",
+        },
+      },
+    },
   },
 });
 

@@ -10,6 +10,7 @@ export const examOrders = [
     visionimpaired_exam: false,
     itemid: 1,
     status: "Ubehandlede",
+    special_production: false,
     att: "ljb",
   },
   {
@@ -23,6 +24,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 2,
     status: "Korrektur",
+    special_production: true,
     att: "per",
   },
   {
@@ -36,6 +38,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Ubehandlede",
+    special_production: false,
     att: "",
   },
   {
@@ -49,6 +52,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Godkendte",
+    special_production: false,
     att: "",
   },
   {
@@ -62,6 +66,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "direkte-forsendelse",
+    special_production: true,
     att: "",
   },
   {
@@ -75,6 +80,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Dialog",
+    special_production: false,
     att: "",
   },
   {
@@ -88,6 +94,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Dialog",
+    special_production: true,
     att: "Keld",
   },
   {
@@ -101,6 +108,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Dialog",
+    special_production: true,
     att: "",
   },
   {
@@ -114,6 +122,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Ubehandlede",
+    special_production: true,
     att: "",
   },
   {
@@ -127,6 +136,7 @@ export const examOrders = [
     visionimpaired_exam: true,
     itemid: 56326,
     status: "Ubehandlede",
+    special_production: true,
     att: "",
   },
 ];

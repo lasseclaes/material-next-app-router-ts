@@ -104,15 +104,61 @@ const columns: GridColDef[] = [
       </>
     ),
   },
+  {
+    field: "special_production",
+    headerName: "SP",
+    width: 80,
+    //disable filters
+    filterable: false,
+    //disable sorting
+    //disable hide column and manage columns
+    hideable: false,
+    hideSortIcons: true,
+    disableColumnMenu: true,
+    sortable: false,
+    cellClassName: "ljn-editable-cell",
+    editable: true,
+    type: "boolean",
+    headerAlign: "left",
+    /*     renderCell: (params) => (
+      <>
+        {/* {console.log("params: ", params)} */
+    /*      {params.value}
+        <EditIcon fontSize="small" style={{ marginLeft: "auto" }} />
+      </>
+    ), */
+  },
 ];
 
 /* console.log("examorders", examorders);
 console.log("columns", columns); */
 
 export default function ExamOrdersDataGrid() {
-  const [open, setOpen] = useState(false);
+  const [shownOrders, setShownOrders] = useState(examOrders);
 
-  function openToast() {
+  const toggleSpecialProductions = (isChecked: boolean) => {
+    if (isChecked) {
+      setShownOrders(
+        examOrders.filter((order) => order.special_production === true)
+      );
+    } else {
+      setShownOrders(examOrders);
+    }
+  };
+
+  /*  function toggleSpecialProductions() {
+    if (isChecked) {
+      setShownOrders(examOrders);
+      return;
+    }
+    setShownOrders(
+      examOrders.filter((order) => order.special_production === true)
+    );
+  } */
+
+  const [openToastVal, setOpen] = useState(false);
+
+  function openToast(): void {
     setOpen((prev) => (prev = true));
   }
 
@@ -125,7 +171,7 @@ export default function ExamOrdersDataGrid() {
     <Box sx={{ width: "fit-content" }}>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        open={open}
+        open={openToastVal}
         autoHideDuration={6000}
         message="Husk at forlade cellen, for at dine ændringer bliver gemt."
       >
@@ -134,13 +180,13 @@ export default function ExamOrdersDataGrid() {
         </Alert>
       </Snackbar>
       <Box sx={{ display: "flex", justifyContent: "end" }}>
-        <Checkboxljn />
+        <Checkboxljn onCheckboxChange={toggleSpecialProductions} />
       </Box>
       <DataGrid
         // loading={!examorders ? true : false}
         // disableColumnMenu
         loading={false}
-        rows={examOrders}
+        rows={shownOrders}
         columns={columns}
         initialState={{
           pagination: {

@@ -1,21 +1,20 @@
 "use client";
+import React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import React from "react";
 
-export default function Checkboxljn() {
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-    alert("checked: " + event.target.checked);
+export default function Checkboxljn({ onCheckboxChange }) {
+  const handleCheckBoxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //alert("checked: " + event.target.checked);
+    const isChecked = event.target.checked;
+    onCheckboxChange(isChecked);
   };
 
   return (
     <FormControlLabel
       value="onlySpecialProductions"
-      control={<Checkbox onChange={handleChange} />}
-      label="Vis kun specialproduktioner"
+      control={<Checkbox onChange={handleCheckBoxChange} />}
+      label="Vis kun specialproduktioner (SP)"
       labelPlacement="start"
     />
   );
