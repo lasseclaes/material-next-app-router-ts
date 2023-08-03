@@ -260,6 +260,12 @@ export default function ExamOrdersDataGrid() {
               backgroundColor: "#aaaaaa",
               border: "1px solid #ccc",
             },
+            "& .MuiDataGrid-overlayWrapper": {
+              height: "5rem",
+            },
+            "& .MuiDataGrid-overlayWrapperInner": {
+              height: "5rem",
+            },
           }}
           checkboxSelection={false}
           disableRowSelectionOnClick

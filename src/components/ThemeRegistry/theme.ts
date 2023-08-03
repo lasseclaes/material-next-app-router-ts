@@ -1,6 +1,5 @@
 import { Roboto } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
-// import { DataGrid } from "@mui/x-data-grid";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -52,16 +51,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiDataGrid: {
-      styleOverrides: {
-        overlayWrapper: {
-          height: "5rem",
-        },
-        overlayWrapperInner: {
-          height: "5rem",
-        },
-      },
-    },
     MuiListItemIcon: {
       styleOverrides: {
         root: {
@@ -86,7 +75,7 @@ export default theme;
 
 //https://mui.com/x/react-data-grid/getting-started/#typescript
 
-/*
+/* 
     MuiDataGrid: {
       styleOverrides: {
         overlayWrapper: {
@@ -96,4 +85,5 @@ export default theme;
           height: "5rem"
       },
     },
+  }
     */
