@@ -10,7 +10,7 @@ import AlertTitle from "@mui/material/AlertTitle"; */
 import MediaCard from "@/components/MediaCard";
 import ExamOrdersTable from "@/components/ExamOrdersDataGrid";
 import ExamOrdersDataGrid from "@/components/ExamOrdersDataGrid";
-import Tabsljn from "@/components/Tabsljn";
+// import Tabsljn from "@/components/Tabsljn";
 import AppBar from "@mui/material/AppBar";
 import { Toolbar, Typography } from "@mui/material";
 import Searchljn from "@/components/Searchljn";
@@ -40,7 +40,6 @@ export default function HomePage() {
         <Searchljn />
       </Toolbar>
       {/* </AppBar> */}
-      <Tabsljn />
 
       <ExamOrdersDataGrid />
     </Box>

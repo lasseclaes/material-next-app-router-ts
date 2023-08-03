@@ -7,12 +7,14 @@ import Box from "@mui/material/Box";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import EditIcon from "@mui/icons-material/Edit";
 import Snackbar from "@mui/material/Snackbar";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Alert from "@mui/material/Alert";
-import { examOrders } from "@/data/examOrders";
+import { examOrders, statusCounts } from "@/data/examOrders";
 import Checkboxljn from "./Checkboxljn";
+import { tabItems } from "@/data/tabItems";
+import Tabsljn from "./Tabsljn";
+import { Typography } from "@mui/material";
 
-console.log("@data");
 const columns: GridColDef[] = [
   {
     field: "id",
@@ -36,7 +38,7 @@ const columns: GridColDef[] = [
   {
     field: "examname",
     headerName: "Eksamensnavn",
-    width: 110,
+    width: 130,
     headerAlign: "left",
   },
   {
@@ -135,6 +137,8 @@ console.log("columns", columns); */
 
 export default function ExamOrdersDataGrid() {
   const [shownOrders, setShownOrders] = useState(examOrders);
+  const activeTitleRef = useRef("Alle");
+  //disclaimer only using it as a prop here
 
   const toggleSpecialProductions = (isChecked: boolean) => {
     if (isChecked) {
@@ -143,6 +147,23 @@ export default function ExamOrdersDataGrid() {
       );
     } else {
       setShownOrders(examOrders);
+    }
+  };
+
+  const handleSelectFilter = (filter: string) => {
+    console.log("filter:  " + filter);
+    if (filter === "alle") {
+      setShownOrders(examOrders);
+      activeTitleRef.current = "Alle";
+    } else {
+      setShownOrders(
+        examOrders.filter((order) => order.status.toLowerCase() === filter)
+      );
+      // activeTitleRef.current = filter;
+      const matchingTab = tabItems.find(
+        (tab) => tab.slug.toLowerCase() === filter
+      );
+      activeTitleRef.current = matchingTab ? matchingTab.title : "Alle";
     }
   };
 
@@ -167,8 +188,13 @@ export default function ExamOrdersDataGrid() {
     console.log(e);
     openToast();
   }
+
   return (
-    <Box sx={{ width: "fit-content" }}>
+    <>
+      <Tabsljn
+        filterByStatus={handleSelectFilter}
+        statusCounts={statusCounts}
+      />
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={openToastVal}
@@ -179,44 +205,66 @@ export default function ExamOrdersDataGrid() {
           Husk at forlade cellen, for at dine ændringer bliver gemt.
         </Alert>
       </Snackbar>
-      <Box sx={{ display: "flex", justifyContent: "end" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          maxWidth: "1032px",
+        }}
+      >
+        <Typography
+          component={"h3"}
+          variant={"h6"}
+          sx={{
+            //capitalize first letter
+            textTransform: "capitalize",
+          }}
+        >
+          {activeTitleRef.current}
+        </Typography>
         <Checkboxljn onCheckboxChange={toggleSpecialProductions} />
       </Box>
-      <DataGrid
-        // loading={!examorders ? true : false}
-        // disableColumnMenu
-        loading={false}
-        rows={shownOrders}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 10,
+      <Box sx={{ width: "fit-content" }}>
+        {/* https://mui.com/x/api/data-grid/data-grid/ */}
+        <DataGrid
+          // loading={!examorders ? true : false}
+          disableColumnMenu
+          // disableVirtualization
+          //disable sorting
+          // disableColumnSelector
+          loading={false}
+          rows={shownOrders}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 50,
+              },
             },
-          },
-        }}
-        onCellEditStart={handleEditStart}
-        pageSizeOptions={[5, 10, 25, 50]}
-        sx={{
-          "& .ljn-header-cell": {
-            textOverflow: "ellipsis",
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            fontWeight: "var(--unstable_DataGrid-headWeight)",
-          },
-          "& .ljn-editable-cell": {
-            backgroundColor: "#f0f0f0",
-            border: "1px solid #ccc",
-            cursor: "pointer",
-          },
-          "& .ljn-editable-cell:hover": {
-            backgroundColor: "#aaaaaa",
-            border: "1px solid #ccc",
-          },
-        }}
-        checkboxSelection={false}
-        disableRowSelectionOnClick
-      />
-    </Box>
+          }}
+          onCellEditStart={handleEditStart}
+          pageSizeOptions={[5, 10, 25, 50]}
+          sx={{
+            "& .ljn-header-cell": {
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              fontWeight: "var(--unstable_DataGrid-headWeight)",
+            },
+            "& .ljn-editable-cell": {
+              backgroundColor: "#f0f0f0",
+              border: "1px solid #ccc",
+              cursor: "pointer",
+            },
+            "& .ljn-editable-cell:hover": {
+              backgroundColor: "#aaaaaa",
+              border: "1px solid #ccc",
+            },
+          }}
+          checkboxSelection={false}
+          disableRowSelectionOnClick
+        />
+      </Box>
+    </>
   );
 }
