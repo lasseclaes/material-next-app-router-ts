@@ -7,6 +7,7 @@ import Snackbar from "@mui/material/Snackbar";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
 import { examOrders } from "@/data/examOrders";
+import Checkboxljn from "./Checkboxljn";
 console.log("@data");
 const columns: GridColDef[] = [
   {
@@ -128,6 +129,9 @@ export default function ExamOrdersDataGrid() {
           Husk at forlade cellen, for at dine ændringer bliver gemt.
         </Alert>
       </Snackbar>
+      <Box sx={{ display: "flex", justifyContent: "end" }}>
+        <Checkboxljn />
+      </Box>
       <DataGrid
         // loading={!examorders ? true : false}
         // disableColumnMenu

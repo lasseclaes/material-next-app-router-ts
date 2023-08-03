@@ -89,90 +89,96 @@ export default function RootLayout({
               </Typography>
             </Toolbar>
           </AppBar> */}
-          <Drawer
+          <Box
+            className="wrapper"
             sx={{
-              width: DRAWER_WIDTH,
-              flexShrink: 0,
-              "& .MuiDrawer-paper": {
-                width: DRAWER_WIDTH,
-                boxSizing: "border-box",
-                // top: ["48px", "56px", "64px"],
-                height: "auto",
-                bottom: 0,
-              },
+              maxWidth: "1600px",
             }}
-            variant="permanent"
-            anchor="left"
           >
-            <Typography
-              variant="h6"
-              noWrap
-              // component="div"
-              color="black"
-              component={Link}
-              href="/"
+            <Drawer
               sx={{
-                textDecoration: "none",
-                p: 2,
-                "&:hover": {
-                  // textDecoration: "underline",
-                  backgroundColor: "rgba(0, 0, 0, 0.04)",
-                  // backgroundColor: "blue",
+                width: DRAWER_WIDTH,
+                flexShrink: 0,
+                "& .MuiDrawer-paper": {
+                  width: DRAWER_WIDTH,
+                  boxSizing: "border-box",
+                  // top: ["48px", "56px", "64px"],
+                  height: "auto",
+                  bottom: 0,
                 },
               }}
+              variant="permanent"
+              anchor="left"
             >
-              <Typography component="h1">Eksamensbestillinger</Typography>
-            </Typography>
-            {/* <Divider /> */}
-            <List>
-              {LINKS.map(({ text, href, icon: Icon, submenu }) => (
-                <ListItem
-                  key={href}
-                  disablePadding
-                  sx={{
-                    // overflow: "hidden",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <ListItemButton component={Link} href={href}>
-                    <ListItemIcon>
-                      <Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                  {!submenu ? null : (
-                    <List
-                      sx={{
-                        my: 0,
-                        py: 0,
-                        width: "100%",
-                        overflowX: "hidden",
-                      }}
-                    >
-                      {submenu?.map((el) => (
-                        <ListItem
-                          key={el.href}
-                          sx={{
-                            ml: 2,
-                            my: 0,
-                            py: 0,
-                          }}
-                        >
-                          <ListItemButton component={Link} href={el.href}>
-                            <ListItemIcon>
-                              <Icon component={el.icon} />
-                            </ListItemIcon>
-                            <ListItemText primary={el.text} />
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                    </List>
-                  )}
-                </ListItem>
-              ))}
-            </List>
-            {/*  <Divider sx={{ mt: "auto" }} /> */}
-            {/*           <List>
+              <Typography
+                variant="h6"
+                noWrap
+                // component="div"
+                color="black"
+                component={Link}
+                href="/"
+                sx={{
+                  textDecoration: "none",
+                  p: 2,
+                  "&:hover": {
+                    // textDecoration: "underline",
+                    backgroundColor: "rgba(0, 0, 0, 0.04)",
+                    // backgroundColor: "blue",
+                  },
+                }}
+              >
+                <Typography component="h1">Eksamensbestillinger</Typography>
+              </Typography>
+              {/* <Divider /> */}
+              <List>
+                {LINKS.map(({ text, href, icon: Icon, submenu }) => (
+                  <ListItem
+                    key={href}
+                    disablePadding
+                    sx={{
+                      // overflow: "hidden",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <ListItemButton component={Link} href={href}>
+                      <ListItemIcon>
+                        <Icon />
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                    {!submenu ? null : (
+                      <List
+                        sx={{
+                          my: 0,
+                          py: 0,
+                          width: "100%",
+                          overflowX: "hidden",
+                        }}
+                      >
+                        {submenu?.map((el) => (
+                          <ListItem
+                            key={el.href}
+                            sx={{
+                              ml: 2,
+                              my: 0,
+                              py: 0,
+                            }}
+                          >
+                            <ListItemButton component={Link} href={el.href}>
+                              <ListItemIcon>
+                                <Icon component={el.icon} />
+                              </ListItemIcon>
+                              <ListItemText primary={el.text} />
+                            </ListItemButton>
+                          </ListItem>
+                        ))}
+                      </List>
+                    )}
+                  </ListItem>
+                ))}
+              </List>
+              {/*  <Divider sx={{ mt: "auto" }} /> */}
+              {/*           <List>
               {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
                 <ListItem key={text} disablePadding>
                   <ListItemButton>
@@ -184,18 +190,19 @@ export default function RootLayout({
                 </ListItem>
               ))}
             </List> */}
-          </Drawer>
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              bgcolor: "background.default",
-              ml: `${DRAWER_WIDTH}px`,
-              // mt: ["48px", "56px", "64px"],
-              p: 3,
-            }}
-          >
-            {children}
+            </Drawer>
+            <Box
+              component="main"
+              sx={{
+                flexGrow: 1,
+                bgcolor: "background.default",
+                ml: `${DRAWER_WIDTH}px`,
+                // mt: ["48px", "56px", "64px"],
+                p: 3,
+              }}
+            >
+              {children}
+            </Box>
           </Box>
         </ThemeRegistry>
       </body>

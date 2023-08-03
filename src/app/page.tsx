@@ -14,6 +14,7 @@ import Tabsljn from "@/components/Tabsljn";
 import AppBar from "@mui/material/AppBar";
 import { Toolbar, Typography } from "@mui/material";
 import Searchljn from "@/components/Searchljn";
+import Checkboxljn from "@/components/Checkboxljn";
 
 export default function HomePage() {
   return (
@@ -40,6 +41,7 @@ export default function HomePage() {
       </Toolbar>
       {/* </AppBar> */}
       <Tabsljn />
+
       <ExamOrdersDataGrid />
     </Box>
     /*  <Box

@@ -18,29 +18,39 @@ export default function Tabsljn() {
         }
       }
     >
-      <ButtonGroup
+      {/*      <ButtonGroup
         variant="outlined"
         aria-label="Filters for exam orders"
         sx={{
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: "space-between",
           flexWrap: "wrap",
-          mb: 4,
           ml: 0,
+        }}
+      > */}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
         }}
       >
         {tabItems.map((item) => (
           <Button
+            variant="outlined"
             key={item.slug}
             sx={{
+              //minWidth: "120px", same width
               textTransform: "capitalize",
+              // flex: "1 1 0px", same width
             }}
           >
             {item.title}
             {item.count > 0 ? ` (${item.count})` : null}
           </Button>
         ))}
-      </ButtonGroup>
+      </Box>
+      {/* </ButtonGroup> */}
     </Box>
   );
 }
