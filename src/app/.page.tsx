@@ -1,4 +1,7 @@
-"use client";
+// import { redirect } from "next/navigation";
+// redirect("/bestillinger");
+
+/* "use client";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
@@ -6,3 +9,4 @@ export default function Page() {
 
   return router.push("/bestillinger");
 }
+ */

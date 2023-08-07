@@ -30,7 +30,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/data/tabItems.js",
-    "src/data/examOrders.js"
+    "src/data/examOrders.js",
+    "src/app/.page.tsx"
   ],
   "exclude": ["node_modules"]
 }
