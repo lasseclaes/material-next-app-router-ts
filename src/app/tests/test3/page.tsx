@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Head from "next/head";
 
-export default function StarredPage() {
+export default function Test2Page() {
   return (
     <Container>
       <Box
@@ -16,7 +16,7 @@ export default function StarredPage() {
         }}
       >
         <Typography variant="body1" gutterBottom>
-          Starred Page
+          Test2Page
         </Typography>
       </Box>
     </Container>

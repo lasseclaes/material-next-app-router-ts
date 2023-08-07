@@ -3,9 +3,9 @@ import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Toolbar from "@mui/material/Toolbar";
+// import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
+// import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -24,11 +24,12 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ViewListIcon from "@mui/icons-material/ViewList";
 // import StarIcon from "@mui/icons-material/Star";
-import ChecklistIcon from "@mui/icons-material/Checklist";
-// import SettingsIcon from "@mui/icons-material/Settings";
-// import SupportIcon from "@mui/icons-material/Support";
-// import LogoutIcon from "@mui/icons-material/Logout";
+// import ChecklistIcon from "@mui/icons-material/Checklist";
+import SettingsIcon from "@mui/icons-material/Settings";
+import SupportIcon from "@mui/icons-material/Support";
+import LogoutIcon from "@mui/icons-material/Logout";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
+import { Divider } from "@mui/material";
 // import { NodeNextRequest } from "next/dist/server/base-http/node";
 
 export const metadata = {
@@ -57,11 +58,11 @@ const LINKS = [
   { text: "Udtræk", href: "/udtraek", icon: ViewListIcon },
 ];
 
-/* const PLACEHOLDER_LINKS = [
-  { text: "Settings", icon: SettingsIcon },
-  { text: "Support", icon: SupportIcon },
-  { text: "Logout", icon: LogoutIcon },
-]; */
+const PLACEHOLDER_LINKS = [
+  { text: "TESTS", href: "/tests", icon: SettingsIcon },
+  /*   { text: "Support", icon: SupportIcon },
+  { text: "Logout", icon: LogoutIcon }, */
+];
 
 export default function RootLayout({
   children,
@@ -179,19 +180,19 @@ export default function RootLayout({
                   ))}
                 </List>
               </nav>
-              {/*  <Divider sx={{ mt: "auto" }} /> */}
-              {/*           <List>
-              {PLACEHOLDER_LINKS.map(({ text, icon: Icon }) => (
-                <ListItem key={text} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>
-                      <Icon />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              ))}
-            </List> */}
+              <Divider sx={{ mt: "auto" }} />
+              <List>
+                {PLACEHOLDER_LINKS.map(({ text, href, icon: Icon }) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton component={Link} href={href}>
+                      <ListItemIcon>
+                        <Icon />
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
             </Drawer>
             <Box
               component="main"
