@@ -135,8 +135,8 @@ const columns: GridColDef[] = [
 /* console.log("examorders", examorders);
 console.log("columns", columns); */
 
-//lacj - too many filters? ARG it's broken
-// let tempOrders = [] as any;
+//lacj - too many filters?
+let tempOrders = [] as any;
 
 export default function ExamOrdersDataGrid() {
   const [shownOrders, setShownOrders] = useState(examOrders);
@@ -145,15 +145,14 @@ export default function ExamOrdersDataGrid() {
 
   const toggleSpecialProductions = (isChecked: boolean) => {
     if (isChecked) {
-      // tempOrders = [...shownOrders];
-      // console.log("tempOrders: ", tempOrders);
+      tempOrders = [...shownOrders];
+      console.log("tempOrders: ", tempOrders);
       setShownOrders(
         shownOrders.filter((order) => order.special_production === true)
       );
     } else {
-      // console.log("tempOrders2: ", tempOrders);
-      setShownOrders(examOrders);
-      // handleSelectFilter(activeTitleRef.current.toLowerCase());
+      console.log("tempOrders2: ", tempOrders);
+      setShownOrders(tempOrders);
     }
   };
 
