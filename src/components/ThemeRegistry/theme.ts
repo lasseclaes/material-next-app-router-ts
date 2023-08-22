@@ -44,6 +44,13 @@ const theme = createTheme({
         }),
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          overflow: "unset",
+        },
+      },
+    },
     MuiFormControlLabel: {
       styleOverrides: {
         label: {
@@ -75,7 +82,7 @@ export default theme;
 
 //https://mui.com/x/react-data-grid/getting-started/#typescript
 
-/* 
+/*
     MuiDataGrid: {
       styleOverrides: {
         overlayWrapper: {
